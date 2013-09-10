@@ -3,7 +3,12 @@ ngGridDirectives.directive('ngViewport', [function() {
         var isMouseWheelActive;
         var prevScollLeft;
         var prevScollTop = 0;
-        elm.bind('scroll', function(evt) {
+        
+		elm.bind('keydown', $scope.onKeyDown);
+		elm.bind('keyup', $scope.onKeyUp);
+		elm.bind('keypress', $scope.onKeyPress);
+		
+		elm.bind('scroll', function(evt) {
             var scrollLeft = evt.target.scrollLeft,
                 scrollTop = evt.target.scrollTop;
             if ($scope.$headerContainer) {

@@ -116,6 +116,18 @@ var ngGrid = function ($scope, options, sortService, domUtilityService, $filter,
 
         //Set this to false if you only want one item selected at a time
         multiSelect: true,
+		
+		//Custom keydown handler, which is fired before the grids' keydown handler
+		onKeyDown: function(){
+		},
+		
+		//Custom keyup handler, which is fired before the grids' keyup handler
+		onKeyUp: function(){
+		},
+		
+		//Custom keypress handler, which is fired before the grids' keypress handler
+		onKeyPress: function(){
+		},
 
         // pagingOptions -
         pagingOptions: {
@@ -731,6 +743,10 @@ var ngGrid = function ($scope, options, sortService, domUtilityService, $filter,
     $scope.showMenu = false;
     $scope.configGroups = [];
     $scope.gridId = self.gridId;
+	$scope.onKeyDown = self.config.onKeyDown;
+	$scope.onKeyUp = self.config.onKeyUp;
+	$scope.onKeyPress = self.config.onKeyPress;
+	
     //Paging
     $scope.enablePaging = self.config.enablePaging;
     $scope.pagingOptions = self.config.pagingOptions;
